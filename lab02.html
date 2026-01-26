@@ -19,40 +19,83 @@
     <main>
         <section>
             <h2>Introduction</h2>
-            <p>Brief intro to what you explored and why...</p>
+            <p>In this lab, I tested two AI tools to build a more critical perspective on how AI actually performs in real coursework tasks. I used Claude for explaining HTML and generating a basic web page, then checked how well the output worked when I tried to publish it. I also used Adobe Firefly to generate realistic ski/snowboard images and looked closely at whether the scenes made sense physically and visually. These experiments showed me that AI can be surprisingly helpful for learning and quick drafts, but it still needs human supervision, especially when details and realism matter.</p>
         </section>
 
         <section>
-            <h2>Tool 1: [Tool Name]</h2>
+            <h2>Tool 1: Claude</h2>
             <h3>Capabilities</h3>
-            <p>What the tool does well, where it falls short...</p>
+            <p>Claude was strongest as a learning and drafting assistant. When I uploaded a screenshot of an HTML slide and asked it to explain it “like I’m 7,” it translated technical concepts into simple language and even used a LEGO/building-block analogy without me requesting one. This showed that it can adapt tone and anticipate what a beginner needs. Claude also generated a full, runnable HTML webpage about TCU’s DCDA minor with multiple sections and styling, which demonstrates strong code generation and organization skills. However, when I asked it to include images, it used external Unsplash links that broke (404 errors) after I published the site. The code looked “complete,” but the real-world dependencies (working links/assets) were unreliable, which revealed a clear limitation: Claude can write structure, but it can’t guarantee external resources will remain valid.</p>
 
             <h3>Appropriate Use</h3>
-            <p>Good use cases vs. poor use cases...</p>
+            <p>Based on my tests, Claude is best used for: (1) explaining concepts in accessible terms, (2) drafting code or webpage structure quickly, and (3) generating a first version that I can refine. It fits well early in my workflow - brainstorming, outlining, and producing a rough draft - then I take over to debug, test, and polish. A poor use case would be relying on Claude for a final published product without verification. The broken image links are a good example: the output looked professional, but it still required human supervision to source reliable assets and ensure the site functioned as expected..</p>
 
             <h3>Ethical Considerations</h3>
-            <p>Concerns and how they're addressed...</p>
+            <p>Claude’s ability to generate “finished-looking” text and code raises authorship and responsibility issues. If I use its explanations or generated code in coursework, I need to make sure I understand what I’m submitting and avoid presenting AI output as fully my own thinking. The image experiment also introduced a practical ethics issue around attribution and reuse: even if the Unsplash links had worked, I would still need to confirm the license, credit requirements, and whether using those images is appropriate for my context. More broadly, the tool can produce confident-sounding output that may hide mistakes, so using it responsibly means checking accuracy and not treating it as an authority.</p>
 
-            <!-- Add screenshots or examples -->
+            <h3>Transparency & Citation</h3>
+            <p>For transparency, I plan to document when I use Claude, what prompts I gave, and what I changed afterward, especially for anything I submit publicly or for class. For coding, that means saving the original AI-generated version and noting my edits (debugging navigation, replacing broken images with local/verified files). For factual information, I should not rely on Claude alone but I would cross-check with course materials or trusted sources and cite those sources directly.</p>
             <figure>
-                <img src="images/tool1-example.png" alt="Description of screenshot">
-                <figcaption>Caption explaining what this shows</figcaption>
+                <img src="images/claude_1.jpg" alt="claude first prompt">
+                <figcaption>Claude explanation test: I uploaded a class slide and asked for a simple explanation.</figcaption>
             </figure>
+            <figure>
+                <img src="images/claude_2.jpg" alt="claude second prompt">
+                <figcaption>Asked Claude to write a html website on TCU'S DCDA minor</figcaption>
         </section>
 
         <section>
-            <h2>Tool 2: [Tool Name]</h2>
-            <!-- Same structure as Tool 1 -->
+            <h2>Tool 2: Adobe Firefly</h2>
+            <h3>Capabilities</h3>
+            <p>I tested Adobe Firefly using a real-world prompt: creating a photorealistic image of people skiing and snowboarding at Big Bear. On my first attempt, Firefly generated a scene that looked surprisingly “real” at first glance - realistic lighting, snow texture, and a background sign that reinforced the Big Bear setting. This showed that Firefly is strong at quickly producing photorealistic images that match the vibe and location cues of a prompt.
+                At the same time, the image revealed a major limitation: the logic and dynamics of the scene were not believable. Even though the image included the elements I asked for, the people’s movement did not feel physically coordinated or realistic (for example, positioning that looks like people could collide). This made me realize Firefly can be visually convincing, but it struggles with spatial reasoning and realistic action.
+                To improve the result, I revised my prompt to reduce complexity and focus only on one part of the scene: a group of kids learning to ski at the bottom of the hill, with some falling and others balancing. Firefly performed better when the prompt was more focused. The second image looked even more photorealistic, and if I didn’t look closely, I might mistake it for a real photo. However, the tool still produced small “AI artifacts,” like a strange limb/object behind the kid who fell. That detail breaks realism once you notice it and shows Firefly still needs human review.</p>
+
+            <h3>Appropriate Use</h3>
+            <p> Based on my experiments, Adobe Firefly is best for brainstorming and drafting visuals—like creating a quick concept of what a scene might look like, making mood boards, generating “starter” images for design ideas, or producing placeholder visuals for early-stage projects. 
+                It works especially well when the prompt is focused and not overloaded with too many actions and elements.
+                A poor use case would be trying to generate a perfect final image where realism and accuracy matter (ex: journalism-style visuals, proof of an event, or any scenario where viewers might assume the image is real). 
+                Firefly can look realistic but still contains mistakes in physics, movement, and human anatomy that make the output unreliable as a final product without editing.</p>
+
+            <h3>Ethical Considerations</h3>
+            <p>The biggest ethical concern is that Firefly can generate images that appear real, which creates a risk of misinformation or misleading audiences if the image is presented as authentic. Even when the scene seems believable, Firefly may invent details or create unrealistic situations. 
+                This matters in contexts where images influence trust.
+                There’s also an authenticity issue: because the image looks like a photograph, viewers might assume it documents a real moment, when it is actually generated. That makes transparency important whenever AI images are shared publicly.</p>
+
+            <h3>Transparency & Citation</h3>
+            <p>To be transparent, I would label any Firefly-generated image as AI-generated and keep a record of my prompts and outputs. In my documentation, I would include screenshots of the prompt, the resulting image, and my revisions, since my process shows how the tool responds to specificity and how errors still appear even with a “better” prompt. 
+            If the image were used in a class project or portfolio, I would include a short disclosure like: “Generated using Adobe Firefly based on my prompt; selected and evaluated by me.”</p>
+
+             <figure>
+                <img src="images/firefle_1.png" alt=" Adobe firefly first prompt">
+                <figcaption>My first ask: people skiing and snowboarding on Big Bear, it looks real but not very logical overall</figcaption>
+             </figure>
+
+              <figure>
+                <img src="images/firefle_2.png" alt=" Adobe firefly second prompt">
+                <figcaption>I asked Adobe to add a group of kids learning how to ski and put more skiing obstacles. Firefly did a great job in including all the elements but the overall picture doesn't blend in well.</figcaption>
+             </figure>
+
+             <figure>
+                <img src="images/firefle_3.png" alt=" Adobe firefly third prompt">
+                <figcaption>I now want Adobe to focus on just a group of kids learning how to ski at the bottom of the hill. The image looks more realistic this time but there are still some odd details that make it obvious it's AI generated.</figcaption>
+             </figure>
+        
+        
         </section>
 
         <section>
             <h2>Broader Reflections</h2>
-            <p>Personal use, DCDA context, evolving landscape...</p>
+            <p>Experimenting with Claude and Adobe Firefly showed me that AI is best for starting, not finishing. Claude helped me
+    understand ideas faster and draft code quickly, but I still had to troubleshoot and make sure I actually understood
+    what I was publishing. Firefly generated images that looked surprisingly real, but the scene logic and small details
+    sometimes fell apart, which made it easy to spot that it was AI. Overall, I learned that AI can boost speed and
+    creativity, but the final quality and ethics still depend on human judgment.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Your Name | <a href="https://github.com/yourusername/dcda-portfolio">GitHub</a></p>
+        <p>&copy; 2026 Kayla Duong | <a href="https://github.com/Kaylaanhduong/dcda-portfolio">GitHub</a></p>
     </footer>
 </body>
 </html>

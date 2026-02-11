@@ -74,9 +74,35 @@
             
             <h3>Data Preparation</h3>
             <p>
+  I found this dataset on Kaggle, and honestly I picked it for two very personal reasons: I love food, and it’s a real pain point for a food lover like me to not know where to start in a city with endless options. I chose Los Angeles specifically because I’ve always wanted to try the best restaurants there one day, and this felt like a fun “future me” project, something I can use later and even share with friends. It also gave me a chance to practice Tableau skills with a dataset that I actually care about (which makes the learning feel way less painful).
+</p>
+
+<p>
+  The workflow to get started was super smooth: downloading the CSV from Kaggle and importing it into Tableau Public was a breeze. The dataset itself was relatively clean, so I didn’t need heavy cleaning or restructuring. That said, a few small issues still mattered for analysis. One was that the <strong>Price</strong> field had some <strong>null values</strong>, which I kept because removing them would hide restaurants that were still highly rated, but it also reminded me that not every platform captures price consistently. Another thing that surprised me at first was that even though this is a “top restaurants” dataset, some of the comments were negative. My first reaction was like… why is this here? But thinking like an actual user, those negative comments are still valuable context and they would definitely make the dashboard more honest and realistic, and they help future users (including me) avoid places that are “popular” but still have consistent issues.
+</p>
+
+<p>
+  The biggest struggle during preparation was geographic mapping. When I dragged <strong>Address</strong> into the sheet, Tableau generated latitude and longitude fields, but the map showed <strong>no points</strong>, different from our Airbnb dataset in class where dots appeared immediately. After a lot of confusion (and yes, asking my boyfriend for help), I realized Tableau needed clearer location components to properly geocode the addresses. We created separate <strong>ZIP</strong> and <strong>State</strong> fields, and once Tableau had that extra structure, the restaurant dots finally appeared on the map. That was a big lesson for me: even if a dataset feels “clean,” geocoding can still fail unless the location data is formatted in a way Tableau recognizes.
+</p>
+
+<p>
+  Another preparation step was creating a unique identifier so the analysis wouldn’t get messy. I made a <strong>Restaurant Key</strong> by combining <strong>Restaurant Name + Address</strong>. This helped me avoid confusion if restaurants shared similar names, and it also matters because the dataset includes a text field for comments (which can create multiple rows or repeated entries depending on how the data is structured). Having a stable key made it easier to treat each restaurant as a distinct entity when needed, especially for counting and ranking.
+</p>
+
+<p>
+  Overall, the dataset required minimal cleaning, but it still required <strong>important “prep thinking”</strong>: deciding how to handle null price values, accepting that negative comments can still be useful, troubleshooting geocoding when the map didn’t behave as expected, and creating a restaurant key to keep the visuals accurate and consistent.
+</p>
 
             <h3>Design Choices</h3>
-            </p>
+            </p>I designed my dashboard around how I actually browse restaurants when I’m overwhelmed by choices. Instead of trying to visualize everything at once, I built three sheets that answer three different questions in a natural order: Where are the restaurants? Which ones are worth it (especially for the price)? And what cuisines dominate LA’s top-rated scene? I also intentionally kept the visuals interactive because restaurant decisions are personal, and users should be able to filter based on their own tastes, budget, and curiosity.</p>
+
+        </p> The map is my “starting point” because location matters more than people admit, even the best restaurant isn’t worth it if it’s 45 minutes away when you’re hungry. I used a symbol map so users can instantly see clusters (like where the hot spots are in LA). I encoded price tiers with color so you can quickly scan what areas skew more affordable vs more expensive. I also added tooltips with key info (rating, reviews, cuisine, etc.) so the map stays clean but still informative when you hover. The goal was to make the map feel like a discovery tool, not just a visual.</p>
+
+    </p> Sheet 2 was designed to answer the question: “Okay, but what are the actual top restaurants… and do people really love them?” I focused on a ranked “Top Picks” view because when users see a big dataset, they usually want a shortlist first. I chose to compare average star rating and number of reviews because star ratings alone can be misleading (a 4.9 with 12 reviews is not the same as a 4.6 with 7,000 reviews).
+I also customized the tooltip to include 1-2 comments because comments are where the “story” is.</p>
+
+</p> For the final sheet, I wanted to step back and ask: “What types of food are showing up the most in LA’s top restaurant scene?” I ranked cuisines by number of restaurants because it’s the clearest way to show which cuisines dominate the dataset. But I didn’t want it to be only about quantity so I added average star rating in the tooltip (and optionally color) to provide quality context. That way, the chart doesn’t just tell you what’s most common; it hints at which cuisines are both common and well-rated.</p>
+
 
             <h3>Expected Patterns</h3>
             <p></p>
@@ -87,7 +113,7 @@
             <h3>Questions for Further Investigation</h3>
 
              <h3>Tool Evaluation</h3>
-             
+
         </section>
     </main>
 

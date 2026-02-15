@@ -353,6 +353,164 @@ tr:nth-child(even) {
 }
 
 /* =========================
+   Hobbies Basket Section
+   ========================= */
+#hobbies {
+    background: linear-gradient(135deg, #fff8f0, #fff5f0);
+}
+
+.hobbies-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.hobbies-playground {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    border: 2px dashed var(--secondary-color);
+    min-height: 400px;
+}
+
+/* Floating hobbies - emoji only */
+.hobby-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffd6e8, #fff0f6);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    cursor: grab;
+    transition: all 0.3s ease;
+    border: 2px solid var(--secondary-color);
+    user-select: none;
+    position: relative;
+}
+
+.hobby-item:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 12px rgba(246, 51, 132, 0.3);
+}
+
+.hobby-item.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.hobby-emoji {
+    font-size: 2.5rem;
+    display: block;
+    line-height: 1;
+}
+
+.hobby-name {
+    display: none;
+}
+
+/* Basket drop zone */
+.basket-area {
+    background: white;
+    border-radius: 12px;
+    border: 3px dashed var(--primary-color);
+    padding: 2rem;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.3s ease;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.basket-area.drag-over {
+    background: linear-gradient(135deg, #fff8f0, #fff5f0);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 20px rgba(255, 189, 109, 0.3);
+    transform: scale(1.02);
+}
+
+.basket-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.basket-label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+#basketList {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+#basketList li {
+    background: linear-gradient(135deg, #ffd6e8, #fff0f6);
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: slideIn 0.3s ease;
+}
+
+#basketList span:first-child {
+    font-size: 1.5rem;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.btn-clear {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center;
+}
+
+.btn-clear:hover {
+    background: #d91e63;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(246, 51, 132, 0.3);
+}
+
+.btn-clear:active {
+    transform: translateY(0);
+}
+
+/* =========================
    Footer (semantic tag)
    ========================= */
 footer {
@@ -402,6 +560,26 @@ footer a:hover {
 
     .viz-grid {
         grid-template-columns: 1fr;  /* Single column on mobile */
+    }
+
+    /* Adjust hobbies playground on mobile */
+    .hobbies-playground {
+        gap: 1rem;
+        padding: 2rem 1rem;
+        min-height: 350px;
+    }
+
+    .hobby-item {
+        width: 70px;
+        height: 70px;
+    }
+
+    .hobby-emoji {
+        font-size: 2rem;
+    }
+
+    .basket-area {
+        max-width: 100%;
     }
 }
 

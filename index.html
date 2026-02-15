@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <div class="hobby-item" draggable="true" data-hobby="cooking-baking">
+                        <span class="hobby-emoji">🍰</span>
+                        <span class="hobby-name">Cooking & Baking</span>
+                    </div>a name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Skills Portfolio showcasing work from DCDA 40833">
     <meta name="author" content="Kayla Duong">
     <title>Kayla Duong | DCDA 40833 Skills Portfolio</title>
@@ -58,6 +61,40 @@
            
         </section>
 
+        <section id="hobbies">
+            <h2>My Hobbies Basket</h2>
+            <p class="hobbies-subtitle">Drag hobbies emojis into the basket to.. 🧺</p>
+
+            <div class="hobbies-playground">
+                <!-- Floating hobbies around the basket - emoji only -->
+                <div class="hobby-item" draggable="true" data-hobby="traveling" data-name="Traveling">
+                    <span class="hobby-emoji">✈️</span>
+                </div>
+                <div class="hobby-item" draggable="true" data-hobby="cooking-baking" data-name="Cooking & Baking">
+                    <span class="hobby-emoji">🍰</span>
+                </div>
+                <div class="hobby-item" draggable="true" data-hobby="gym" data-name="Gym">
+                    <span class="hobby-emoji">💪</span>
+                </div>
+                <div class="hobby-item" draggable="true" data-hobby="k-dramas" data-name="K-Dramas">
+                    <span class="hobby-emoji">🎬</span>
+                </div>
+                <div class="hobby-item" draggable="true" data-hobby="matcha" data-name="Matcha">
+                    <span class="hobby-emoji">🍵</span>
+                </div>
+                <div class="hobby-item" draggable="true" data-hobby="trinkets" data-name="Fun Trinkets">
+                    <span class="hobby-emoji">✨</span>
+                </div>
+
+                <!-- Basket in the center -->
+                <div class="basket-area" id="basketDropZone">
+                    <div class="basket-icon">🧺</div>
+                    <p class="basket-label">Find out what my hobbies are!</p>
+                    <ul class="basket-contents" id="basketList"></ul>
+                    <button class="btn-clear" id="clearBasket">Empty Basket</button>
+                </div>
+            </div>
+        </section>
         <!-- Portfolio Section: Links to all lab pages -->
         <section id="portfolio">
             <h2>My Work</h2>
@@ -120,5 +157,70 @@
         <p><a href="https://github.com/Kaylaanhduong/dcda-portfolio">View Repository on GitHub</a></p>
         <p>&copy; 2026 Kayla Duong | DCDA 40833 | TCU</p>
     </footer>
+
+    <script>
+        // Hobbies Basket Drag and Drop Functionality
+        const basketDropZone = document.getElementById('basketDropZone');
+        const basketList = document.getElementById('basketList');
+        const clearBasketBtn = document.getElementById('clearBasket');
+        const hobbyItems = document.querySelectorAll('.hobby-item');
+        
+        let draggedElement = null;
+
+        // Add drag listeners to all hobby items
+        hobbyItems.forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                draggedElement = item;
+                item.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+            });
+
+            item.addEventListener('dragend', (e) => {
+                item.classList.remove('dragging');
+            });
+        });
+
+        // Basket drop zone listeners
+        basketDropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            basketDropZone.classList.add('drag-over');
+        });
+
+        basketDropZone.addEventListener('dragleave', (e) => {
+            basketDropZone.classList.remove('drag-over');
+        });
+
+        basketDropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            basketDropZone.classList.remove('drag-over');
+            
+            if (draggedElement) {
+                addHobbyToBasket(draggedElement);
+            }
+        });
+
+        function addHobbyToBasket(hobbyElement) {
+            const hobbyName = hobbyElement.dataset.name;
+            const hobbyEmoji = hobbyElement.querySelector('.hobby-emoji').textContent;
+            
+            // Check if already in basket
+            const existingItem = Array.from(basketList.children).find(
+                item => item.dataset.hobby === hobbyElement.dataset.hobby
+            );
+            
+            if (!existingItem) {
+                const listItem = document.createElement('li');
+                listItem.dataset.hobby = hobbyElement.dataset.hobby;
+                listItem.innerHTML = `<span>${hobbyEmoji}</span> ${hobbyName}`;
+                basketList.appendChild(listItem);
+            }
+        }
+
+        // Clear basket functionality
+        clearBasketBtn.addEventListener('click', () => {
+            basketList.innerHTML = '';
+        });
+    </script>
 </body>
 </html>

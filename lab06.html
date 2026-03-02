@@ -228,12 +228,12 @@
             <p>
                 One of my biggest cartographic challenges was determining the exact coordinates for each location. Vietnamese addresses are 
                 formatted differently than addresses in English-speaking countries, which made automated geocoding unreliable. When I initially 
-                used the Mapbox Geocoding API, several locations were placed in completely wrong areas—some even ended up outside of Saigon!
+                used the Mapbox Geocoding API, several locations were placed in completely wrong areas, some even ended up outside of Saigon!
             </p>
             <p>
                 To solve this, I manually verified each location using Google Maps and collected the precise latitude/longitude coordinates. 
                 This manual verification process took time, but it ensured accuracy. Another challenge was deciding on the zoom level and 
-                center of the map—I wanted to show all 12 locations while keeping the view zoomed in enough to see Saigon clearly, so I 
+                center of the map as I wanted to show all 12 locations while keeping the view zoomed in enough to see Saigon clearly, so I 
                 settled on a zoom level of 12 and centered it on the heart of District 1.
             </p>
             <p>
@@ -249,37 +249,29 @@
                 After troubleshooting and researching, I realized that Mapbox GL JS was the proper solution for using modern Mapbox custom styles.
             </p>
             <p>
-                This required a complete rewrite of the map implementation from scratch using JavaScript instead of Python. I worked with Claude (an AI assistant) 
-                to implement this transition, and I was impressed by how well Claude understood my directions and requirements. Claude didn't just generate code—
+                This required a complete rewrite of the map implementation from scratch using JavaScript instead of Python. I worked with Claude 
+                to implement this transition, and I was impressed by how well Claude understood my directions and requirements. Claude didn't just generate code - 
                 it asked clarifying questions about my vision (like how I wanted the popups to look, what color scheme I preferred, and how important responsive 
                 design was), and then implemented solutions that matched my exact specifications. When I needed to make adjustments (like increasing image sizes 
                 in popups, adding a legend box, or fixing marker placements), Claude efficiently incorporated my feedback without losing the overall structure.
             </p>
             <p>
-                Together, we hardcoded all 12 location objects with their coordinates, descriptions, and image URLs directly into the HTML/JavaScript. While less 
-                elegant than a data-driven Python script, this approach gave us more direct control over the map rendering and styling. I also had to manually 
-                verify coordinates using Google Maps since automated geocoding was unreliable for Vietnamese addresses—Claude helped me set up the geocoding 
+                Together, we hardcoded all 12 location objects with their coordinates, descriptions, and image URLs directly into the HTML/JavaScript. I also had to manually 
+                verify coordinates using Google Maps since automated geocoding was unreliable for Vietnamese addresses, Claude helped me set up the geocoding 
                 process and debug the coordinate issues when locations were appearing in wrong locations initially.
             </p>
             <p>
                 Another technical challenge was managing popups with embedded images. We implemented proper error handling (using the onerror attribute) 
-                in case any image URLs broke or became inaccessible. We also calculated the proper popup width and image height to maintain a good visual 
-                balance—too large and the popup would cover the entire map, too small and the images wouldn't be impactful. This iterative process of 
+                in case any image URLs broke or became inaccessible. This iterative process of 
                 refinement really benefited from Claude's ability to understand and implement nuanced design feedback.
             </p>
 
             <h3>Conclusion</h3>
             <p>
-                Creating this hometown map was a deeply personal and technical journey. It pushed me to think like a cartographer—considering 
+                Creating this hometown map was a deeply personal and technical journey. It pushed me to think like a cartographer - considering 
                 not just what data to show, but how to tell a story with it. The project reinforced the importance of accuracy, especially 
                 when working with real-world geographic data, and taught me the value of sometimes taking manual approaches when automated 
                 solutions fall short.
-            </p>
-            <p>
-                On the technical side, this project expanded my skills beyond Python data processing into frontend web mapping with Mapbox GL JS. 
-                I learned that different tools have different strengths, and sometimes the "best" tool for a job isn't always the most obvious one. 
-                The combination of careful coordinate verification, thoughtful visual design, and clean technical implementation resulted in a map 
-                that I'm proud of—one that genuinely communicates why these places matter to me.
             </p>
             <p>
                 Looking back, I realize that this map is more than just a visualization; it's a digital artifact of my identity and connection to my city. 

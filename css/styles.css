@@ -9,8 +9,8 @@
 :root {
     --primary-color: #E36A6A;      /* TCU Purple */
     --secondary-color: #f63384;    /* Light Purple */
-    --accent-color: #9bbaff;       /* Gold accent */
-    --text-color: #333;            /* Dark gray for text */
+    --accent-color: #9bffdc;       /* Gold accent */
+    --text-color: #452829;            /* Dark gray for text */
     --text-secondary: #64748b;     /* Lighter gray for captions */
     --bg-color: #FFF2D0;           /* Light background */
     --white: #ffffff;

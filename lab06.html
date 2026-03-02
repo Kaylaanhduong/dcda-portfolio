@@ -3,129 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Data Visualization in Tableau Public| Kayla Duong </title>
+    <title>My Hometown Map: Saigon | Kayla Duong</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .lab-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .lab-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .lab-header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin: 20px 0 10px 0;
+        }
+
+        .lab-header p {
+            font-size: 1.1em;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .project-section {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .project-section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-top: 0;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 15px;
+        }
+
+        .project-section h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .project-section p {
+            font-size: 1em;
+            line-height: 1.7;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        .project-section ul {
+            font-size: 1em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            margin: 30px 0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .location-card {
+            background: #f9f9f9;
+            border-left: 4px solid #ff6b6b;
+            padding: 20px;
+            border-radius: 5px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .location-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .location-card h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .location-card p {
+            margin: 8px 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+            margin: 30px 0;
+        }
+
+        .highlight strong {
+            color: #856404;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+
+        .back-link:hover {
+            background: #1a252f;
+        }
+    </style>
 </head>
 <body>
     <nav>
-            <ul>
+        <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="lab02.html" class="active">AI Experimentation</a></li>
+            <li><a href="lab02.html">AI Experimentation</a></li>
             <li><a href="lab03.html">Tufte Critique</a></li>
             <li><a href="lab04.html">Tableau Viz</a></li>
             <li><a href="lab05.html">Vibe Coding</a></li>
-            <li><a href="hometown-map.html">Hometown Map</a></li>
-            </ul>
-            <!-- Add more lab links as the semester progresses -->
-        </nav>
-    
+            <li><a href="lab06.html" class="active">Hometown Map</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <h1>Data Visualization in Tableau Public</h1>
+        <h1>My Hometown Map: Saigon</h1>
         <p>Kayla Duong | DCDA 40833 Skills Portfolio | Spring 2026</p>
     </header>
 
     <main>
         <section>
-            <h2>Los Angeles Restaurant Explore</h2>
-            <p>A quick look at LA’s most recommended restaurants - where they are, how they’re rated, and which cuisines show up the most.</p>
-
-            <div class="tableau-embed">
-    <div class='tableauPlaceholder' id='viz1770830390706' style='position: relative'>
-      <noscript>
-        <a href='#'>
-          <img alt='Dashboard 1 ' src='https://public.tableau.com/static/images/C8/C8GW2R2RH/1_rss.png' style='border: none' />
-        </a>
-      </noscript>
-      <object class='tableauViz' style='display:none;'>
-        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-        <param name='embed_code_version' value='3' />
-        <param name='path' value='shared/C8GW2R2RH' />
-        <param name='toolbar' value='yes' />
-        <param name='static_image' value='https://public.tableau.com/static/images/C8/C8GW2R2RH/1.png' />
-        <param name='animate_transition' value='yes' />
-        <param name='display_static_image' value='yes' />
-        <param name='display_spinner' value='yes' />
-        <param name='display_overlay' value='yes' />
-        <param name='display_count' value='yes' />
-        <param name='language' value='en-US' />
-      </object>
-    </div>
-
-    <script type='text/javascript'>
-      var divElement = document.getElementById('viz1770830390706');
-      var vizElement = divElement.getElementsByTagName('object')[0];
-      if (divElement.offsetWidth > 800) {
-        vizElement.style.width='100%'; vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-      } else if (divElement.offsetWidth > 500) {
-        vizElement.style.width='100%'; vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-      } else {
-        vizElement.style.width='100%'; vizElement.style.height='1127px';
-      }
-      var scriptElement = document.createElement('script');
-      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-      vizElement.parentNode.insertBefore(scriptElement, vizElement);
-    </script>
-  </div>
-</section>
-
-
-  <section>
-            <h2>Reflection & Analysis</h2>
-            
-            <h3>Data Preparation</h3>
+            <h2>🗺️ Hometown Map - Saigon Locations</h2>
             <p>
-  I found this dataset on Kaggle, and honestly I picked it for two very personal reasons: I love food, and it’s a real pain point for a food lover like me to not know where to start in a city with endless options. I chose Los Angeles specifically because I’ve always wanted to try the best restaurants there one day, and this felt like a fun “future me” project, something I can use later and even share with friends. It also gave me a chance to practice Tableau skills with a dataset that I actually care about (which makes the learning feel way less painful).
-</p>
+                An interactive map showcasing 12 meaningful locations in Saigon, Vietnam. Each marker represents a place that has shaped who I am—
+                from schools and favorite restaurants to cultural landmarks and recreational spots where I've spent countless hours with friends and family.
+                Click on any marker to discover more about that location, including photos and personal stories about why each place matters to me.
+            </p>
 
-<p>
-  The workflow to get started was super smooth: downloading the CSV from Kaggle and importing it into Tableau Public was a breeze. The dataset itself was relatively clean, so I didn’t need heavy cleaning or restructuring. That said, a few small issues still mattered for analysis. One was that the <strong>Price</strong> field had some <strong>null values</strong>, which I kept because removing them would hide restaurants that were still highly rated, but it also reminded me that not every platform captures price consistently. Another thing that surprised me at first was that even though this is a “top restaurants” dataset, some of the comments were negative. My first reaction was like… why is this here? But thinking like an actual user, those negative comments are still valuable context and they would definitely make the dashboard more honest and realistic, and they help future users (including me) avoid places that are “popular” but still have consistent issues.
-</p>
+            <div style="width: 100%; height: 600px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 30px 0;">
+                <iframe src="hometown_map_mapbox.html" title="Saigon Hometown Map" style="width: 100%; height: 100%; border: none;"></iframe>
+            </div>
 
-<p>
-  The biggest struggle during preparation was geographic mapping. When I dragged <strong>Address</strong> into the sheet, Tableau generated latitude and longitude fields, but the map showed <strong>no points</strong>, different from our Airbnb dataset in class where dots appeared immediately. After a lot of confusion (and yes, asking my boyfriend for help), I realized Tableau needed clearer location components to properly geocode the addresses. We created separate <strong>ZIP</strong> and <strong>State</strong> fields, and once Tableau had that extra structure, the restaurant dots finally appeared on the map. That was a big lesson for me: even if a dataset feels “clean,” geocoding can still fail unless the location data is formatted in a way Tableau recognizes.
-</p>
+            <p style="background: #fff3cd; padding: 20px; border-left: 4px solid #ffc107; border-radius: 5px; margin: 30px 0;">
+                <strong>💡 Tip:</strong> Use the navigation controls on the map to zoom in/out and explore different areas of Saigon. 
+                The legend in the bottom-left corner shows you what each colored icon represents!
+            </p>
+        </section>
 
-<p>
-  Another preparation step was creating a unique identifier so the analysis wouldn’t get messy. I made a <strong>Restaurant Key</strong> by combining <strong>Restaurant Name + Address</strong>. This helped me avoid confusion if restaurants shared similar names, and it also matters because the dataset includes a text field for comments (which can create multiple rows or repeated entries depending on how the data is structured). Having a stable key made it easier to treat each restaurant as a distinct entity when needed, especially for counting and ranking.
-</p>
+        <section>
+            <h2>About This Map</h2>
+            <p>
+                Saigon is more than just my hometown—it's a living, breathing city full of energy, contradictions, and endless possibilities. 
+                This map is my way of sharing a piece of my identity through the places that have shaped me. Each of the 12 locations represents 
+                a chapter in my story, organized into five categories: Schools & Educational Institutions, Landmarks, Restaurants & Cafes, 
+                Culture & History, and Recreation.
+            </p>
+            <p>
+                I created this map not just as a portfolio project, but as a love letter to my city. It's my way of saying thank you to Saigon 
+                for the education, the experiences, the friendships, and the countless moments—both big and small—that have shaped my life.
+            </p>
+        </section>
 
-<p>
-  Overall, the dataset required minimal cleaning, but it still required <strong>important “prep thinking”</strong>: deciding how to handle null price values, accepting that negative comments can still be useful, troubleshooting geocoding when the map didn’t behave as expected, and creating a restaurant key to keep the visuals accurate and consistent.
-</p>
+        <section>
+            <h2>Reflection & Analysis</h2>
 
-            <h3>Design Choices</h3>
-            </p>I designed my dashboard around how I actually browse restaurants when I’m overwhelmed by choices. Instead of trying to visualize everything at once, I built three sheets that answer three different questions in a natural order: Where are the restaurants? Which ones are worth it (especially for the price)? And what cuisines dominate LA’s top-rated scene? I also intentionally kept the visuals interactive because restaurant decisions are personal, and users should be able to filter based on their own tastes, budget, and curiosity.</p>
+            <h3>Design Inspiration</h3>
+            <p>
+                The design of this map was inspired by my desire to create an interactive storytelling experience. Rather than just showing 
+                a list of coordinates, I wanted to bring each location to life with images, descriptions, and visual hierarchy. The five 
+                location categories emerged naturally from the types of places that are most meaningful to me, and I chose emoji icons because 
+                they're universally recognizable and add a playful, personal touch to the cartography.
+            </p>
+            <p>
+                I intentionally chose a custom Mapbox basemap style that feels modern and clean, allowing the markers to stand out. The color 
+                coding system—blue for schools, orange for landmarks, green for restaurants, purple for culture, and red for recreation—
+                helps users quickly understand what they're looking at without needing to read the legend every time. The legend itself was 
+                placed in the bottom-left corner following standard cartographic conventions.
+            </p>
 
-        </p> The map is my “starting point” because location matters more than people admit, even the best restaurant isn’t worth it if it’s 45 minutes away when you’re hungry. I used a symbol map so users can instantly see clusters (like where the hot spots are in LA). I encoded price tiers with color so you can quickly scan what areas skew more affordable vs more expensive. I also added tooltips with key info (rating, reviews, cuisine, etc.) so the map stays clean but still informative when you hover. The goal was to make the map feel like a discovery tool, not just a visual.</p>
+            <h3>Cartographic Challenges</h3>
+            <p>
+                One of my biggest cartographic challenges was determining the exact coordinates for each location. Vietnamese addresses are 
+                formatted differently than addresses in English-speaking countries, which made automated geocoding unreliable. When I initially 
+                used the Mapbox Geocoding API, several locations were placed in completely wrong areas—some even ended up outside of Saigon!
+            </p>
+            <p>
+                To solve this, I manually verified each location using Google Maps and collected the precise latitude/longitude coordinates. 
+                This manual verification process took time, but it ensured accuracy. Another challenge was deciding on the zoom level and 
+                center of the map—I wanted to show all 12 locations while keeping the view zoomed in enough to see Saigon clearly, so I 
+                settled on a zoom level of 12 and centered it on the heart of District 1.
+            </p>
+            <p>
+                I also grappled with the popup design. I wanted to include images for each location to make it visually rich, but I had to 
+                balance image file sizes with loading performance. Ultimately, I set a fixed height for popup images and used responsive sizing 
+                to keep popups from becoming overwhelming on smaller screens.
+            </p>
 
-    </p> Sheet 2 was designed to answer the question: “Okay, but what are the actual top restaurants… and do people really love them?” I focused on a ranked “Top Picks” view because when users see a big dataset, they usually want a shortlist first. I chose to compare average star rating and number of reviews because star ratings alone can be misleading (a 4.9 with 12 reviews is not the same as a 4.6 with 7,000 reviews).
-I also customized the tooltip to include 1-2 comments because comments are where the “story” is.</p>
+            <h3>Technical Challenges</h3>
+            <p>
+                The biggest technical challenge was switching from Folium (Python-based mapping library) to Mapbox GL JS. My initial approach 
+                used Folium with a Mapbox tileset, but the custom Mapbox style wasn't displaying correctly through Folium's TileLayer implementation. 
+                After troubleshooting and researching, I realized that Mapbox GL JS was the proper solution for using modern Mapbox custom styles.
+            </p>
+            <p>
+                This required me to rewrite the entire map implementation from scratch using JavaScript instead of Python. I had to hardcode 
+                all 12 location objects with their coordinates, descriptions, and image URLs directly into the HTML/JavaScript. While less 
+                elegant than a data-driven Python script, this approach gave me more direct control over the map rendering and styling.
+            </p>
+            <p>
+                Another technical challenge was managing popups with embedded images. I had to ensure that images had proper error handling 
+                (using the onerror attribute) in case any image URLs broke or became inaccessible. I also had to calculate the proper popup 
+                width and image height to maintain a good visual balance—too large and the popup would cover the entire map, too small and 
+                the images wouldn't be impactful.
+            </p>
 
-</p> For the final sheet, I wanted to step back and ask: “What types of food are showing up the most in LA’s top restaurant scene?” I ranked cuisines by number of restaurants because it’s the clearest way to show which cuisines dominate the dataset. But I didn’t want it to be only about quantity so I added average star rating in the tooltip (and optionally color) to provide quality context. That way, the chart doesn’t just tell you what’s most common; it hints at which cuisines are both common and well-rated.</p>
-
-
-            <h3>Expected Patterns</h3>
-            <p>Before building the visuals, I had a few expectations based on what I already associate with LA’s food scene. First, I expected the restaurants to cluster around popular, more central areas (not evenly spread out), since most “hyped” places tend to concentrate where there’s more foot traffic, tourists, and nightlife. I also expected a relationship between price and ratings, but not a perfect one. Going in, I assumed more expensive restaurants might have slightly higher ratings on average because of service, atmosphere, and premium ingredients.Finally, I expected Korean cuisine to rank near the top because LA has a well-known Koreatown, and Korean food culture there is a major part of the city’s dining identity so it made sense that Korean restaurants would show up frequently in a “top recommended” dataset.</p>
-
-            <h3>Surprises/Outliers</h3>
-            <p>One surprise was how much the dataset reminded me that “top-rated” doesn’t mean people want to become frequent diners. Even though this dataset is framed around recommended restaurants, there were still negative comments which honestly threw me off at first. But after thinking about it, it made sense: real restaurant experiences are personal, and even great places can have off days, long waits, or service issues that show up in reviews. In a way, seeing those negative comments made the dataset feel more real and useful instead of overly curated.
-
-Another surprise was how strongly review count changes how I trust a rating. Some restaurants had very high average ratings but relatively fewer reviews, while others had slightly lower ratings but thousands of reviews. That made me realize why it was important to include both metrics in the Top Picks sheet because rating alone can be misleading without context.</p>
-
-            <h3>Questions for Further Investigation</h3>
-            </p> One question I still have is whether there are cuisines with small representation but unusually high performance. Some cuisines appear only a few times in the dataset, yet they might have very strong average ratings. I’d want to investigate whether those are true standout cuisines (like underrated gems) or if they’re simply benefiting from a small sample size, where a few highly rated restaurants make the whole cuisine look “elite.”</p>
-
-        </p> Another follow-up question is what the negative comments have in common. Even though this is a “top-rated” restaurant dataset, some reviews still point out real issues. If I had more time, I would categorize the negative comments into themes (service, wait time, price/value, consistency, etc.) to see what complaints show up most often. That would make the dashboard more practical, because it would help users understand not just which restaurants are popular, but what potential tradeoffs to expect. </p>
-
-    </p> Lastly, I’d want to evaluate how reliable this dataset is as a picture of LA overall. Because it’s a curated “top restaurants” list from Kaggle, it may reflect the bias of the original source (what counts as “top,” which neighborhoods are included, and which cuisines get represented). </p>
-             <h3>Tool Evaluation</h3>
-</p> Using Tableau Public for this project honestly made the dataset feel alive. Once the CSV was imported, it was so satisfying to drag fields into Rows/Columns and immediately see patterns. Tableau is especially powerful for building dashboards that feel interactive and “explorable,” not just static. Tooltips were also a big win. I liked being able to keep the main visuals clean while still letting users hover for extra detail like review count, price tier, and a comment.</p>
-
-</p> At the same time, Tableau definitely humbled me. The biggest challenge was mapping. In class (with the Airbnb dataset), the map came together pretty smoothly, but with this dataset, dragging Address into the view created latitude/longitude fields without showing any points. It was confusing because I thought I did the “correct” step.</p>
-
-</p> Also… I learned the hard way about saving. Tableau closed unexpectedly at one point, and I lost progress because I hadn’t saved/published recently. It was stressful,but I now learn my lesson: save early and save often!</p>
-
-</p> Overall, I think Tableau Public was the right tool for this project because it helped me turn a dataset into an interactive story that people can actually use.</p>
+            <h3>Conclusion</h3>
+            <p>
+                Creating this hometown map was a deeply personal and technical journey. It pushed me to think like a cartographer—considering 
+                not just what data to show, but how to tell a story with it. The project reinforced the importance of accuracy, especially 
+                when working with real-world geographic data, and taught me the value of sometimes taking manual approaches when automated 
+                solutions fall short.
+            </p>
+            <p>
+                On the technical side, this project expanded my skills beyond Python data processing into frontend web mapping with Mapbox GL JS. 
+                I learned that different tools have different strengths, and sometimes the "best" tool for a job isn't always the most obvious one. 
+                The combination of careful coordinate verification, thoughtful visual design, and clean technical implementation resulted in a map 
+                that I'm proud of—one that genuinely communicates why these places matter to me.
+            </p>
+            <p>
+                Looking back, I realize that this map is more than just a visualization; it's a digital artifact of my identity and connection to my city. 
+                Every location has a story, every marker represents a memory, and collectively they paint a picture of who I am and where I come from.
+            </p>
         </section>
     </main>
 

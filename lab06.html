@@ -161,7 +161,7 @@
         <section>
             <h2>🗺️ Hometown Map - Saigon Locations</h2>
             <p>
-                An interactive map showcasing 12 meaningful locations in Saigon, Vietnam. Each marker represents a place that has shaped who I am—
+                An interactive map showcasing 12 meaningful locations in Saigon, Vietnam. Each marker represents a place that has shaped who I am -
                 from schools and favorite restaurants to cultural landmarks and recreational spots where I've spent countless hours with friends and family.
                 Click on any marker to discover more about that location, including photos and personal stories about why each place matters to me.
             </p>
@@ -179,14 +179,14 @@
         <section>
             <h2>About This Map</h2>
             <p>
-                Saigon is more than just my hometown—it's a living, breathing city full of energy, contradictions, and endless possibilities. 
+                Saigon is more than just my hometown - it's a living, breathing city full of energy, contradictions, and endless possibilities. 
                 This map is my way of sharing a piece of my identity through the places that have shaped me. Each of the 12 locations represents 
                 a chapter in my story, organized into five categories: Schools & Educational Institutions, Landmarks, Restaurants & Cafes, 
                 Culture & History, and Recreation.
             </p>
             <p>
                 I created this map not just as a portfolio project, but as a love letter to my city. It's my way of saying thank you to Saigon 
-                for the education, the experiences, the friendships, and the countless moments—both big and small—that have shaped my life.
+                for the education, the experiences, the friendships, and the countless moments - both big and small - that have shaped my life.
             </p>
         </section>
 
@@ -195,16 +195,33 @@
 
             <h3>Design Inspiration</h3>
             <p>
-                The design of this map was inspired by my desire to create an interactive storytelling experience. Rather than just showing 
-                a list of coordinates, I wanted to bring each location to life with images, descriptions, and visual hierarchy. The five 
-                location categories emerged naturally from the types of places that are most meaningful to me, and I chose emoji icons because 
-                they're universally recognizable and add a playful, personal touch to the cartography.
+                The design of this map was inspired by a Vietnamese spring picnic artwork - three women in áo dài sitting by a lake surrounded 
+                by blossoms and greenery. What I loved about it was how soft and calm the palette feels, even though there are still a lot of 
+                details. Everything looks "layered" but not chaotic, and I wanted to translate that feeling into my map.
+            </p>
+            
+            <figure style="text-align: center; margin: 30px 0;">
+                <img src="images/xuanaodai.png" alt="Vietnamese Spring Picnic Artwork - Inspiration for map design" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 10px; font-size: 0.95em; color: #666; font-style: italic;">Vietnamese spring picnic artwork that inspired the map's color palette and aesthetic</figcaption>
+            </figure>
+            
+            <p>
+                I based my custom Mapbox basemap on this aesthetic by using muted greens as the primary land colors to mimic the gardens and 
+                foliage in the artwork, and a gentle aqua tone for water to match the peaceful lake in the background. For built areas and 
+                secondary features, I kept warmer cream and light neutral tones inspired by the flowers, picnic items, and overall glow of 
+                the scene, so the map feels airy instead of heavy. I also used a warmer accent color (inspired by the orange áo dài) in small 
+                ways to add contrast and guide the eye without overpowering the soft base palette.
             </p>
             <p>
-                I intentionally chose a custom Mapbox basemap style that feels modern and clean, allowing the markers to stand out. The color 
-                coding system—blue for schools, orange for landmarks, green for restaurants, purple for culture, and red for recreation—
-                helps users quickly understand what they're looking at without needing to read the legend every time. The legend itself was 
-                placed in the bottom-left corner following standard cartographic conventions.
+                For the markers themselves, I chose emoji icons because they're universally recognizable and add a playful, personal touch to 
+                the cartography. The five location categories - schools (blue 🏫), landmarks (orange 🏢), restaurants (green 🍽️), culture (purple 🏛️), 
+                and recreation (red 🎾) - emerged naturally from the types of places that are most meaningful to me. This color coding helps users 
+                quickly understand what they're looking at without needing to read the legend every time.
+            </p>
+            <p>
+                Overall, my goal was for the map to feel like a "spring in Saigon" mood - peaceful, nostalgic, and painterly - rather than a 
+                standard, high-contrast navigation map. I wanted visitors to feel the same sense of calm and layered beauty that I felt looking 
+                at that artwork, while still being able to explore and understand the meaningful places in my life.
             </p>
 
             <h3>Cartographic Challenges</h3>
@@ -232,15 +249,23 @@
                 After troubleshooting and researching, I realized that Mapbox GL JS was the proper solution for using modern Mapbox custom styles.
             </p>
             <p>
-                This required me to rewrite the entire map implementation from scratch using JavaScript instead of Python. I had to hardcode 
-                all 12 location objects with their coordinates, descriptions, and image URLs directly into the HTML/JavaScript. While less 
-                elegant than a data-driven Python script, this approach gave me more direct control over the map rendering and styling.
+                This required a complete rewrite of the map implementation from scratch using JavaScript instead of Python. I worked with Claude (an AI assistant) 
+                to implement this transition, and I was impressed by how well Claude understood my directions and requirements. Claude didn't just generate code—
+                it asked clarifying questions about my vision (like how I wanted the popups to look, what color scheme I preferred, and how important responsive 
+                design was), and then implemented solutions that matched my exact specifications. When I needed to make adjustments (like increasing image sizes 
+                in popups, adding a legend box, or fixing marker placements), Claude efficiently incorporated my feedback without losing the overall structure.
             </p>
             <p>
-                Another technical challenge was managing popups with embedded images. I had to ensure that images had proper error handling 
-                (using the onerror attribute) in case any image URLs broke or became inaccessible. I also had to calculate the proper popup 
-                width and image height to maintain a good visual balance—too large and the popup would cover the entire map, too small and 
-                the images wouldn't be impactful.
+                Together, we hardcoded all 12 location objects with their coordinates, descriptions, and image URLs directly into the HTML/JavaScript. While less 
+                elegant than a data-driven Python script, this approach gave us more direct control over the map rendering and styling. I also had to manually 
+                verify coordinates using Google Maps since automated geocoding was unreliable for Vietnamese addresses—Claude helped me set up the geocoding 
+                process and debug the coordinate issues when locations were appearing in wrong locations initially.
+            </p>
+            <p>
+                Another technical challenge was managing popups with embedded images. We implemented proper error handling (using the onerror attribute) 
+                in case any image URLs broke or became inaccessible. We also calculated the proper popup width and image height to maintain a good visual 
+                balance—too large and the popup would cover the entire map, too small and the images wouldn't be impactful. This iterative process of 
+                refinement really benefited from Claude's ability to understand and implement nuanced design feedback.
             </p>
 
             <h3>Conclusion</h3>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>My Hometown Map - Saigon</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        
+        .title-box {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            border: 2px solid #2c3e50;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 999;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            font-family: Arial, sans-serif;
+        }
+        
+        .title-box h2 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+        
+        .title-box p {
+            margin: 0;
+            font-size: 12px;
+            color: #555;
+        }
+        
+        .mapboxgl-popup-content {
+            font-family: Arial, sans-serif;
+            padding: 0;
+        }
+        
+        .popup-content {
+            padding: 0;
+            max-width: 450px;
+            overflow: hidden;
+        }
+        
+        .popup-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .popup-text {
+            padding: 20px;
+        }
+        
+        .popup-content h4 {
+            margin: 0 0 8px 0;
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .popup-content p {
+            margin: 8px 0;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #333;
+        }
+        
+        .location-type {
+            font-weight: bold;
+            color: #fff;
+            background: #ff9900;
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id='map'></div>
+    <div class='title-box'>
+        <h2>🗺️ My Hometown Map</h2>
+        <p><strong>Saigon</strong></p>
+        <p>Meaningful locations in my life</p>
+        <p style="margin-top: 8px; font-size: 11px; color: #999;">Click markers to see details</p>
+    </div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoia2F5bGFhbmhkdW9uZyIsImEiOiJjbWx0cXJoZnIwMzduM2duNXRxbWgzYXRqIn0.pDLb-dh5YY3pO4C4LUqW6g';
+        
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/kaylaanhduong/cmm8dfrh0000w01qr9d2e9ac8',
+            center: [106.7009, 10.7769],
+            zoom: 12
+        });
+
+        // Add navigation controls
+        map.addControl(new mapboxgl.NavigationControl());
+
+        // Your locations data - VERIFIED COORDINATES
+        const locations = [
+            {
+                name: 'Tran Dai Nghia High School for the Gifted',
+                type: 'Schools & Educational Institutions',
+                description: 'This is my middle school, and my four years at Tran Dai Nghia were genuinely the happiest, most formative years for me. Because it sits in the heart of Saigon, it was always easy to get to so many cultural and historic places around the city. It\'s also special because the school isn\'t just prestigious—it\'s housed in a 150-year-old architectural landmark.',
+                image: 'https://scontent-dfw5-2.xx.fbcdn.net/v/t1.6435-9/125415242_3486949781415703_2826179567073379034_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=13d280&_nc_ohc=cpNjZ1i_HvgQ7kNvwGWuh6R&_nc_oc=AdkWsuNh7CiGpeEhTEsEwxhK1Fbm7b6sXQ4oxWWAkonHDtifJUpbfAS6DDvgkSkNKkU&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=nFJrpCmYWNZH5BaLVTfE-Q&_nc_ss=8&oh=00_AfziasiOaNo785UbFMPR2DzKW4ScBpLXKLQnIc8TnTj6AQ&oe=69CC5DDD',
+                coordinates: [106.701035, 10.777952]
+            },
+            {
+                name: 'High School for the Gifted VNUHCM',
+                type: 'Schools & Educational Institutions',
+                description: 'High School for the Gifted (VNUHCM) is my high school and one of the most academically competitive schools in Vietnam. Even though the campus is relatively small, it\'s where I built a lot of core memories. Its location near Saigon\'s Chinatown and the hospital district places it in one of the city\'s most energetic and vibrant areas.',
+                image: 'https://cdn-i.doisongphapluat.com.vn/resize/th/upload/2024/05/14/truong-pho-thong-nang-khieu-co-ty-le-choi-vao-10-cao-nhat-6-nam-qua-11004592.jpg',
+                coordinates: [106.66641661923816, 10.758909842876523]
+            },
+            {
+                name: 'Landmark 81',
+                type: 'Landmark',
+                description: 'Landmark 81 is the tallest building in Vietnam and one of the biggest symbols of Saigon\'s rapid development. It\'s right by where I live, so I always think of it as the city\'s "future" in one building—luxury shopping, restaurants, and residential space all stacked into one place. The SkyView observatory at the top is seriously a must-visit for the 360° view.',
+                image: 'https://static.vinwonders.com/production/landmark-81-banner.jpg',
+                coordinates: [106.721784, 10.795009]
+            },
+            {
+                name: 'Cơm Tấm Mộc',
+                type: 'Restaurants & Cafes',
+                description: 'Cơm Tấm Mộc is a popular broken rice restaurant chain, and it\'s still my go-to because it tastes like my childhood. Cơm tấm is a classic Saigon specialty, and my family has been coming here since it was only one restaurant. Now it\'s expanded into multiple locations, which makes it feel even more "Saigon"—always growing, but still familiar.',
+                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/47/c4/d0/caption.jpg',
+                coordinates: [106.69795561201222, 10.77464297722394]
+            },
+            {
+                name: 'Ben Thanh Market',
+                type: 'Culture & History',
+                description: 'Ben Thanh Market is honestly the Saigon icon—my family used to live right across from the West Gate, so it was part of my everyday life. You can hear, smell, see, and feel the city all at once here, and you can buy everything from souvenirs to food to random little trinkets. It\'s definitely more expensive because it\'s so central, but the vibe is still unmatched.',
+                image: 'https://static-images.vnncdn.net/vps_images_publish/000001/00000Q/2026/2/2/ben-thanh-market-and-turtle-lake-transform-for-tet-2026-0f3e45db3ce14354b2c8245caba24d0b-2231.jpg',
+                coordinates: [106.694472, 10.773611]
+            },
+            {
+                name: 'Nam Giao Restaurant',
+                type: 'Restaurants & Cafes',
+                description: 'Nam Giao is our go-to restaurant for central Vietnamese dishes—authentic, cozy, and the kind of place you always want to come back to. My family has been coming here for so long that we\'ve become friends with the owners. The sweetest part is that even after three years away, they still knew who I was and remembered exactly what I order.',
+                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/b0/e8/09/photo0jpg.jpg',
+                coordinates: [106.69793162324784, 10.774119480674589]
+            },
+            {
+                name: 'Tôn Thất Đạm Apartment Building',
+                type: 'Culture & History',
+                description: 'Tôn Thất Đạm Apartment Building is classic old Saigon architecture, but inside it\'s full of hidden, trendy stores that feel like little discoveries. It\'s one of my favorite places because it captures that "old meets new" energy of the city. Also… if I ever snuck out of class, this was definitely one of my top locations',
+                image: 'https://tranngoctueman.wordpress.com/wp-content/uploads/2016/12/1436351501_d10.jpg',
+                coordinates: [106.704199, 10.769548]
+            },
+            {
+                name: 'War Remnants Museum',
+                type: 'Culture & History',
+                description: 'War Remnants Museum is one of the most important places to visit in Saigon, especially if you\'re American, because it presents the war through stories and evidence that can feel very different from what you might have grown up hearing. It\'s a heavy experience, but I\'ve seen it change my American friends\' perspectives in a real way. For me, it also honors how hard Vietnamese families fought and endured to protect this country\'s future.',
+                image: 'https://cdn.silverlandhotels.com/wp-content/uploads/2025/03/bao-tang-chung-tich-chien-tranh-1-e1504148866695.jpg',
+                coordinates: [106.692388890853, 10.779648583774614]
+            },
+            {
+                name: 'Morico Saigon Pearl',
+                type: 'Restaurants & Cafes',
+                description: 'Morico Saigon Pearl is my family\'s favorite spot for Japanese food—everything is always consistently good. It\'s a bit pricey, but we eat here for both big celebrations and tiny everyday moments, mostly because it\'s located right in our apartment complex. If you want to spot my family in Saigon, there\'s a good chance we\'re here.',
+                image: 'https://hataraku-mama.info/wp-content/uploads/2019/12/2019-12-18-14-03-12-574.jpg',
+                coordinates: [106.715639, 10.789333]
+            },
+            {
+                name: 'Hai An Bookstore',
+                type: 'Culture & History',
+                description: 'Hải An Bookstore is honestly a core memory for me—this is where my boyfriend and I first met (aka our first date moment). It\'s calm and quiet enough for reading, but it still feels like a cute place to hang out without being too crowded. I love that it\'s both a bookstore and a little "safe space" in the city.',
+                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1f/e4/3a/9a/panoramic-view-inside.jpg',
+                coordinates: [106.7048909539324, 10.79057158939511]
+            },
+            {
+                name: 'Tao Dan Badminton Court',
+                type: 'Recreation',
+                description: 'Tao Đàn Badminton Court has been part of my life since I was 3 - I\'ve taken lessons here for as long as I can remember. It\'s also the default meet-up spot for my friends, because you can run into old friends, catch up, and even make new ones on the court. It\'s super affordable per hour, but the quality and vibe are honestly top-tier.',
+                image: 'https://sieuthicaulong.vn/userfiles/files/image3.jpg',
+                coordinates: [106.694538, 10.776111]
+            },
+            {
+                name: 'CHAY GARDEN Xuân Thủy',
+                type: 'Restaurants & Cafes',
+                description: 'This is my mom and I\'s go-to vegetarian spot, and we always do the buffet. It\'s calm and peaceful, and it feels like a reset day for us—like a light "detox" but still actually satisfying. The menu changes every week, so it stays exciting and doesn\'t feel like "sad veggie food."',
+                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/bf/93/a6/outdoor-space.jpg',
+                coordinates: [106.73123732509697, 10.803185940511089]
+            }
+        ];
+
+        // Color mapping for location types
+        const colorMap = {
+            'Schools & Educational Institutions': '#0066cc',
+            'Landmark': '#ff9900',
+            'Restaurants & Cafes': '#00cc00',
+            'Culture & History': '#9933cc',
+            'Recreation': '#ff3333'
+        };
+
+        // Icon mapping for location types (emoji icons)
+        const iconMap = {
+            'Schools & Educational Institutions': '🏫',
+            'Landmark': '🏢',
+            'Restaurants & Cafes': '🍽️',
+            'Culture & History': '🏛️',
+            'Recreation': '🎾'
+        };
+
+        // Add markers for each location
+        locations.forEach(location => {
+            const color = colorMap[location.type] || '#999999';
+            const icon = iconMap[location.type] || '📍';
+            
+            // Create popup HTML with better layout
+            const popupHTML = `
+                <div class="popup-content">
+                    <img src="${location.image}" alt="${location.name}" class="popup-image" onerror="this.style.display='none'">
+                    <div class="popup-text">
+                        <h4>${icon} ${location.name}</h4>
+                        <p><span class="location-type">${location.type}</span></p>
+                        <p>${location.description}</p>
+                    </div>
+                </div>
+            `;
+
+            // Create marker element with emoji in a circle
+            const el = document.createElement('div');
+            el.style.width = '50px';
+            el.style.height = '50px';
+            el.style.display = 'flex';
+            el.style.alignItems = 'center';
+            el.style.justifyContent = 'center';
+            el.style.fontSize = '32px';
+            el.style.cursor = 'pointer';
+            el.style.backgroundColor = color;
+            el.style.borderRadius = '50%';
+            el.style.border = '3px solid white';
+            el.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3), 0 0 0 2px ' + color;
+            el.style.userSelect = 'none';
+            el.textContent = icon;
+
+            // Create popup
+            const popup = new mapboxgl.Popup({ 
+                offset: 25,
+                maxWidth: 'none'
+            }).setHTML(popupHTML);
+
+            // Add marker to map
+            new mapboxgl.Marker(el)
+                .setLngLat(location.coordinates)
+                .setPopup(popup)
+                .addTo(map);
+        });
+    </script>
+
+</body>
+</html>

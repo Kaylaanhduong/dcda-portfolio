@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Navigation: Links to all portfolio pages -->
+    <!-- Main navigation for moving between the homepage and each lab page -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -21,49 +21,36 @@
         </ul>
     </nav>
 
-    <!-- Header: Your name and course info -->
-
     <header>
         <h1>Kayla Duong</h1>
         <p>DCDA 40833 Skills Portfolio | Spring 2026</p>
     </header>
 
     <main>
-        <!-- Welcome Section: Brief introduction to your portfolio -->
         <section id="welcome">
             <h2>Welcome</h2>
-            <!-- TODO: Write a brief introduction (2-3 sentences) about your portfolio -->
-             <!-- This welcome section would tell visitors that I am an amateur that trying to challenge myself! -->
             <p>Welcome to my Skills Portfolio! This portfolio represents my first experience using GitHub and building a technical skills portfolio in DCDA 40833.</p>
             <p>Coming from a Strategic Communication background, I challenged myself to step outside my comfort zone and explore web development and data analytics. Each project reflects my progress, problem-solving, and willingness to learn something new.</p>
         </section>
 
-        <!-- About Section: Tell visitors about yourself -->
         <section id="about">
             <h2>About Me</h2>
-            <!-- TODO: Replace this placeholder content with information about yourself -->
-             <!-- Short and brief introduction about myself in order to better connect with the visitors -->
-            <p><strong>Who I am:</strong> My name is Kayla Duong, and I am a Strategic Communication major at TCU. This portfolio was created for DCDA 40833 and represents my first experience building a website and using GitHub as a platform for documenting my work. </p>
-            <p><strong>My interests:</strong> I am interested in storytelling, branding, and how digital platforms shape culture and communication. I was drawn to DCDA because it challenged me to look beyond creative strategy and explore the technical systems behind the digital world. </p>
-            <!-- From the Stratcomm and Advertising perspective, I believe knowing the technical aspects of digital media is essential for effective communication and branding. -->
+            <p><strong>Who I am:</strong> My name is Kayla Duong, and I am a Strategic Communication major at TCU. This portfolio was created for DCDA 40833 and represents my first experience building a website and using GitHub as a platform for documenting my work.</p>
+            <p><strong>My interests:</strong> I am interested in storytelling, branding, and how digital platforms shape culture and communication. I was drawn to DCDA because it challenged me to look beyond creative strategy and explore the technical systems behind the digital world.</p>
             <p><strong>What I hope to learn:</strong> Through this course, I hope to develop foundational technical skills in coding, data analysis, and visualization. As someone without a technical background, my goal is to step outside my comfort zone and gain confidence working with digital tools and data.</p>
-            <!-- I know I am not good at these coding and even setting github and VSCode took me forever but I'm here to grow outside of my comfort zone -->
 
-            <!-- Optional: Add a photo of yourself -->
-            
+            <!-- Figure used to visually personalize the homepage and make the portfolio feel more like a professional profile -->
             <figure class="viz-container">
                 <img src="images/profile-photo.jpg" alt="Photo of Kayla Duong">
-                <!-- my headshot here! -->
             </figure>
-           
         </section>
 
+        <!-- This section adds personality and interaction to the homepage through a drag-and-drop feature -->
         <section id="hobbies">
             <h2>My Hobbies Basket</h2>
-            <p class="hobbies-subtitle">Drag hobbies emojis into the basket to.. 🧺</p>
+            <p class="hobbies-subtitle">Drag the hobby emojis into the basket to learn more about me. 🧺</p>
 
             <div class="hobbies-playground">
-                <!-- Floating hobbies around the basket - emoji only -->
                 <div class="hobby-item" draggable="true" data-hobby="traveling" data-name="Traveling">
                     <span class="hobby-emoji">✈️</span>
                 </div>
@@ -83,7 +70,7 @@
                     <span class="hobby-emoji">✨</span>
                 </div>
 
-                <!-- Basket in the center -->
+                <!-- The basket is the drop zone where JavaScript will display the hobbies selected by the user -->
                 <div class="basket-area" id="basketDropZone">
                     <div class="basket-icon">🧺</div>
                     <p class="basket-label">Find out what my hobbies are!</p>
@@ -92,71 +79,61 @@
                 </div>
             </div>
         </section>
-        <!-- Portfolio Section: Links to all lab pages -->
+
+        <!-- Portfolio cards give visitors a visual way to access each lab page -->
         <section id="portfolio">
             <h2>My Work</h2>
             <p>Click on any card below to view that lab assignment. Focus of actual labs may change over the course of the semester:</p>
 
-            <!-- Portfolio Grid: Cards linking to each lab page -->
             <div class="portfolio-grid">
-
-                <!-- Lab 2: AI Tool Evaluation -->
                 <a href="lab02.html" class="portfolio-card">
                     <h3>AI Tool Evaluation</h3>
                     <span class="lab-tag">Lab 2</span>
                     <p>Analysis of AI tools and their capabilities, exploring how artificial intelligence is changing digital culture.</p>
                 </a>
 
-                <!-- Lab 3: Tufte Critique -->
                 <a href="lab03.html" class="portfolio-card">
                     <h3>Tufte Critique</h3>
                     <span class="lab-tag">Lab 3</span>
                     <p>Critical analysis of a data visualization using Edward Tufte's principles of graphical excellence.</p>
                 </a>
 
-                <!-- Lab 4: Tableau Visualization -->
                 <a href="lab04.html" class="portfolio-card">
                     <h3>Tableau Visualization</h3>
                     <span class="lab-tag">Lab 4</span>
                     <p>Interactive data visualization created with Tableau Public, exploring patterns in real-world data.</p>
                 </a>
 
-                <!-- Lab 5: TBD -->
                 <a href="lab05.html" class="portfolio-card">
-                    <h3>Lab 5</h3>
+                    <h3>Vibe Coding</h3>
                     <span class="lab-tag">Lab 5</span>
-                    <p>Content based on Lab 5 assignment.</p>
+                    <p>An AI-assisted coding project that explored how generated code can support creative experimentation and technical learning.</p>
                 </a>
 
-                <!-- Lab 6: Hometown Map -->
                 <a href="lab06.html" class="portfolio-card">
                     <h3>Hometown Map</h3>
                     <span class="lab-tag">Lab 6</span>
                     <p>Interactive Folium map showcasing meaningful locations from my hometown with personal reflections.</p>
                 </a>
-
             </div>
         </section>
 
-        <!-- Reflection Section: Optional semester reflection -->
         <section id="reflection">
             <h2>Semester Reflection</h2>
-            <!-- TODO: After completing all labs, write a reflection on your growth -->
-            <p><strong>What I learned:</strong> In Lab 1, I learned how to set up a project using GitHub for the first time and how to work with HTML files in VS Code. I also learned the differences between pushing and pulling changes, how to comment my code, and how GitHub tracks edits, making it easier to trace mistakes and understand my workflow</p>
+            <p><strong>What I learned:</strong> In Lab 1, I learned how to set up a project using GitHub for the first time and how to work with HTML files in VS Code. I also learned the differences between pushing and pulling changes, how to comment my code, and how GitHub tracks edits, making it easier to trace mistakes and understand my workflow.</p>
             <p><strong>Challenges I overcame:</strong> Setting everything up without a video walkthrough or in-class guidance was confusing at first, and I struggled to understand how to open my HTML file correctly in VS Code. I felt frustrated and wanted to give up several times, but after realizing I needed to open the project directly from GitHub, things began to click. Working through these challenges helped me build confidence with unfamiliar technical tools.</p>
-            <p><strong>How I grew:</strong> [How did your understanding of digital culture and data analytics evolve?]</p>
-            <p><strong>Looking ahead:</strong> [How will you apply these skills in the future?]</p>
+            <p><strong>How I grew:</strong> Over the semester, I became more comfortable moving between creative thinking and technical execution. I learned that digital culture is not only shaped by the content we see online, but also by the tools, systems, interfaces, and data structures behind it.</p>
+            <p><strong>Looking ahead:</strong> I hope to apply these skills in future branding, communication, and digital strategy work. Even if I do not become a programmer, learning how websites, data visualizations, and digital tools function helps me become a more thoughtful communicator and a stronger collaborator across creative and technical teams.</p>
         </section>
     </main>
 
-    <!-- Footer: Links and copyright -->
     <footer>
         <p><a href="https://github.com/Kaylaanhduong/dcda-portfolio">View Repository on GitHub</a></p>
         <p>&copy; 2026 Kayla Duong | DCDA 40833 | TCU</p>
     </footer>
 
     <script>
-        // Hobbies Basket Drag and Drop Functionality
+        /* This script handles the drag-and-drop interaction for the hobbies basket section */
         const basketDropZone = document.getElementById('basketDropZone');
         const basketList = document.getElementById('basketList');
         const clearBasketBtn = document.getElementById('clearBasket');
@@ -164,7 +141,6 @@
         
         let draggedElement = null;
 
-        // Add drag listeners to all hobby items
         hobbyItems.forEach(item => {
             item.addEventListener('dragstart', (e) => {
                 draggedElement = item;
@@ -172,19 +148,18 @@
                 e.dataTransfer.effectAllowed = 'move';
             });
 
-            item.addEventListener('dragend', (e) => {
+            item.addEventListener('dragend', () => {
                 item.classList.remove('dragging');
             });
         });
 
-        // Basket drop zone listeners
         basketDropZone.addEventListener('dragover', (e) => {
             e.preventDefault();
             e.dataTransfer.dropEffect = 'move';
             basketDropZone.classList.add('drag-over');
         });
 
-        basketDropZone.addEventListener('dragleave', (e) => {
+        basketDropZone.addEventListener('dragleave', () => {
             basketDropZone.classList.remove('drag-over');
         });
 
@@ -197,11 +172,11 @@
             }
         });
 
+        /* This function adds a hobby to the basket list while preventing duplicates */
         function addHobbyToBasket(hobbyElement) {
             const hobbyName = hobbyElement.dataset.name;
             const hobbyEmoji = hobbyElement.querySelector('.hobby-emoji').textContent;
             
-            // Check if already in basket
             const existingItem = Array.from(basketList.children).find(
                 item => item.dataset.hobby === hobbyElement.dataset.hobby
             );
@@ -214,7 +189,6 @@
             }
         }
 
-        // Clear basket functionality
         clearBasketBtn.addEventListener('click', () => {
             basketList.innerHTML = '';
         });

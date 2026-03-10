@@ -118,6 +118,23 @@ main section {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Special styling for synopsis section - subtle but distinct */
+main section#synopsis {
+    background: #FFF2D0 !important;
+    border: 2px solid #E36A6A;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(227, 106, 106, 0.15);
+}
+
+#synopsis h2 {
+    font-size: 1.5rem;
+}
+
+#synopsis p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
 /* Style h2 headings inside sections */
 main section h2 {
     color: var(--primary-color);

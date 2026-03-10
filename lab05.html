@@ -25,6 +25,13 @@
     </header>
 
     <main>
+    
+      <section id="synopsis">
+            <h2>Lab Synopsis</h2>
+            <p>For this lab, I explored “vibe coding” by using AI tools to help me build creative and technical projects without starting entirely from scratch. The lab asked me to experiment with AI-generated code, evaluate how well it worked, and reflect honestly on what I understood, what I changed, and what still required my judgment. This page includes two experiments: one focused on improving my portfolio through an interactive hobbies feature, and another focused on generating Python code for data analysis and visualization. Together, these experiments demonstrate my ability to collaborate with AI creatively while still making my own design, analytical, and revision decisions.</p>
+    
+        </section>
+<!-- Experiment A focuses on using Claude to co-create an interactive feature for my portfolio site -->
         <section>
             <h2>Experiment A: Portfolio Enhancement</h2>
             <p>For this lab, I created an interactive “My Hobbies Basket” section for my portfolio where visitors can drag my hobby emojis into a camping basket in the middle of the page. The idea was to make it feel like a small “game” so people can discover who I am instead of reading a boring list. My original vision was that the emojis would be floating around the basket, but since my coding knowledge is limited, I started with what Claude generated first and then kept iterating until it matched my preferences (basket centered, hobbies around it, and a “find out what my hobbies are” reveal moment).<p>
@@ -33,7 +40,8 @@
          
             <h2>Working with Claude Haiku 4.5</h2>
             <p> These screenshots document how I used Claude like a teammate and mentor. I started with a high-level concept, then iterated through layout decisions, a small bug fix, and an interaction tweak to match my intended “discover my hobbies” vibe.</p>
-            
+            <!-- These figures show my prompt progression and document how the design evolved through iteration -->
+
             <figure>
                 <img src="images/claude 1code.png"> 
                 <figcaption> First prompt I gave to Claude, presenting my big idea of Hobbies Basket eventhough not yet finalized</figcaption>
@@ -51,6 +59,7 @@
             <figure>
                 <img src="images/claude code 4.png">
                 <figcaption> Fourth prompt, this was when I knew what concept of hobbies basket I wanted to go for!</figcaption>
+         <!-- Temporary figure styling to keep screenshots centered and readable on the page -->
             </figure>
                 <style>
                     figure { text-align: center; margin: 3rem auto; max-width: 800px; }
@@ -63,7 +72,7 @@
             <p> Even though AI generated the starting version, I still modified the result to make it feel like my design. I adjusted layout choices like centering the basket, spacing the hobby emojis around it, and adding the dashed border container, and I changed the interaction so it felt like a little reveal game instead of a basic “click to add” list. This is where AI was most helpful: it built the skeleton of my idea fast, which gave me the momentum to collaborate instead of getting stuck at zero. Once the base existed, I could focus on the creative direction and user experience choices, rather than spending all my time trying to wire the drag and drop mechanics from scratch.<p></p>
 
 <p>At the same time, AI can be a little too confident. Sometimes the first output looked correct but did not match my mental image, so I had to be specific with follow up prompts and keep refining. It also reminded me that I still have responsibility as the builder and cannot treat AI code like magic. My role is to guide the vibe, test it like a real user, and make sure I can explain what the code is doing in my own words, even if I did not write every line from scratch.</p>
-
+ <!-- Experiment B shifts from web design to Python code generation and data visualization -->
         <h2> Experiment B: Python Code Generation</h2>
         <h3>Google Colab + Gemini</h3>
 
@@ -80,7 +89,7 @@
 </p>
 
         <p> For Experiment B, I picked a Chocolate Sales dataset from Kaggle because it felt like a fun, real-world dataset to practice cleaning and visualization. At first, I wanted to show top-selling countries and top-selling chocolate products, but Gemini gave me two separate charts and I caught myself thinking… wait, that doesn’t prove any correlation. So I pushed the prompt further and asked for one visualization that actually connects the variables: top-selling countries with the top 3 chocolate types for each country, so the chart tells one coherent story instead of two disconnected rankings.</p>
-
+<!-- These figures document both the final output and the prompts that shaped the analysis -->
         <h3>Top 3 Chocolate types by Sales per Top Country</h3>
         <figure>
                 <img src="images/chocolate.png"> 
@@ -98,6 +107,7 @@
             </figure>
 
              </figure>
+             <!-- Temporary figure styling reused for the Colab screenshots and final chart -->
                 <style>
                     figure { text-align: center; margin: 3rem auto; max-width: 800px; }
                     figure img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
